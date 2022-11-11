@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#Lists all running processes for all users
-#including those without TTY
-#displayed in user oriented format
+#Lists all running processes for all users including those without TTY.
 
 ps -a uf
