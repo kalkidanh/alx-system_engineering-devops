@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Displays a phrase indefinitely with sleep 2 in between and another phrase when SIGTERM is recieved.
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap 'echo "I am invincible"' SIGTERM
+done
