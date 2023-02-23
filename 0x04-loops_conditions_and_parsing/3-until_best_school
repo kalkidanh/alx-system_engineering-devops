@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #script that prints a phrase 10 times using until
-x=1
-until [ $x -gt 9 ]
+x=0
+until [ $x -eq 10 ]
 do
 	echo "Best School"
 	((x++))
