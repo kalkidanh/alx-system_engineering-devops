@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#A shorter script to configure an nginx server
+sed -i "s/8080/80g" /etc/nginx/sites-enabled/default
+pkill -l nginx
