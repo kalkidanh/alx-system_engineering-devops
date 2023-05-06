@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Script to configure an nginx server
+
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
