@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Script to configure an Nginx server to redirect to another page
+
+sudo apt-get update
+sudo apt-get -y install nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+string_to_replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.facebook.com\/ permanent;"
+sudo sed -i "s/server_name _;/$string_to_replace/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
