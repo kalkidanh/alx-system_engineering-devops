@@ -1,20 +1,20 @@
-#Setting up an nginx server using puppet script
+#setting up an nginx server using puppet
 
-package { 'nginx':
-	ensure => 'present',
+package {
+    'nginx':
+    ensure => installed,
 }
-execute { 'install':
-	command  => 'sudo apt-get update; sudo apt-get -y install nginx',
-	provider => shell,
+
+file {'/var/www/html/index.nginx-debian.html':
+    content => 'Hello World!',
 }
-execute { 'Hello':
-	command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
-	provider => shell,
+
+file_line {'configure redirection':
+    path  =>  '/etc/nginx/sites-available/default',
+    after =>  'server_name _;',
+    line  =>  "\n\tlocation /redirect_me {\n\t\treturn 301 https://facebook.com;\n\t}\n",
 }
-excecute {'sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.faccebook.com\/;\\n\\t}/" /etc/nginx/sites-available/default':
-	provider => shell,
-}
-excecute { 'run':
-	command  => 'sudo service nginx restart',
-	provider => shell,
+
+service {'nginx':
+    ensure => running,
 }
