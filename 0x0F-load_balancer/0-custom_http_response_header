@@ -16,11 +16,11 @@ echo "Hello World!" | sudo tee /var/www/html/index.html
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
 # redirection
-string_to_replacement="server_name _;\n\tadd_header X-Served-By \$hostname;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/@eliasd342 permanent;"
-sudo sed -i "s/server_name _;/$string_to_replacement/" /etc/nginx/sites-enabled/default
+string_to_replace="server_name _;\n\tadd_header X-Served-By \$hostname;\n\trewrite ^\/redirect_me https:\/\/www.facebook.com permanent;"
+sudo sed -i "s/server_name _;/$string_to_replace/" /etc/nginx/sites-enabled/default
 # Error page and redirection
-string_to_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
-sudo sed -i "s/listen 80 default_server;/$string_to_replacement/" /etc/nginx/sites-enabled/default
+string_to_replace="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_to_replace/" /etc/nginx/sites-enabled/default
 
 #restart Nginx
 sudo service nginx restart
