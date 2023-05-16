@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Script that fixes a bug allowing the web server to connect as user 'nginx'.
+
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
