@@ -1,0 +1,1 @@
+MySql database redundancy setup
