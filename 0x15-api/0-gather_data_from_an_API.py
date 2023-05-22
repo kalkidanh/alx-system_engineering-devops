@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-"""
-Script that takes an employee id as an argument and returns their info using
+"""Script that takes an employee id as an argument and returns their info using
 the JSON placeholder API."""
-
 
 import requests
 import sys
 
 
 def main():
+    """Main function that prints information about the employee."""
     main_url = 'https://jsonplaceholder.typicode.com'
     todo_url = f"{main_url}/user/{sys.argv[1]}/todos"
     name_url = f"{main_url}/users/{sys.argv[1]}"
