@@ -2,9 +2,9 @@
 """Script that takes an employee id as an argument and returns their info using
 the JSON placeholder API."""
 
+import csv
 import requests
 import sys
-import csv
 
 
 def main():
