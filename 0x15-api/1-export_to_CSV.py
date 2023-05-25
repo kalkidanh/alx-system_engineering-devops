@@ -4,7 +4,7 @@ the JSON placeholder API."""
 
 import requests
 import sys
-
+import csv
 
 def main():
     """Main function that prints information about the employee."""
