@@ -14,7 +14,6 @@ def main():
     todo_result = requests.get(todo_url).json()
     name_result = requests.get(name_url).json()
 
-
     todo_num = len(todo_result)
     todo_complete = len([todo for todo in todo_result if todo["completed"]])
     name = name_result["name"]
