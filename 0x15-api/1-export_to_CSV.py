@@ -2,9 +2,9 @@
 """Script that takes an employee id as an argument and returns their info using
 the JSON placeholder API."""
 
-import csv
-import requests
-import sys
+from csv import DictWriter, QUOTE_ALL
+from requests import get
+from sys import argv
 
 
 def main():
@@ -12,8 +12,8 @@ def main():
     main_url = 'https://jsonplaceholder.typicode.com'
     todo_url = f"{main_url}/user/{sys.argv[1]}/todos"
     name_url = f"{main_url}/users/{sys.argv[1]}"
-    todo_result = requests.get(todo_url).json()
-    name_result = requests.get(name_url).json()
+    todo_result = get(todo_url).json()
+    name_result = get(name_url).json()
 
     todo_list = []
     for todo in todo_result:
